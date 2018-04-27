@@ -1,0 +1,36 @@
+{
+	"name": "andegna/calender",
+	"type": "library",
+	"description": "If you ever want to convert Ethiopian Calender to any other calender system (like the Gregorian Calender) this is the right package for you. And by the way it also support Amharic date formatting and much much more.",
+	"keywords": ["ethiopian", "date", "calender", "JDN"],
+	"license": "MIT",
+	"support": {
+		"issues": "https://github.com/andegna/calender/issues",
+		"source": "https://github.com/andegna/calender"
+	},
+	"authors": [
+		{
+			"name": "Sam As End",
+			"email": "4sam21@gmail.com"
+		}
+	],
+	"require": {
+		"php": ">=7.0.0",
+		"ext-calendar": "*",
+		"geezify/geezify-php": "^1.2"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "~5.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Andegna\\": "src/",
+			"Andegna\\PHPUnit\\": "tests/"
+		}
+	},
+	"extra": {
+		"branch-alias": {
+			"develop": "2.2-dev"
+		}
+	}
+}
