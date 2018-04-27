@@ -165,7 +165,6 @@ class Ameshash {
 		$this->loader->add_filter( 'plugin_action_links_' . $plugin_basename, $plugin_admin, 'add_action_links' );
 		//Save / update our setting numbers
 		$this->loader->add_action('admin_init', $plugin_admin, 'options_update');
-
 	}
 
 	/**
@@ -185,6 +184,9 @@ class Ameshash {
 
 		$this->loader->add_filter( 'the_content' , $plugin_public, 'wporg_filter_title' );
 		$this->loader->add_filter( 'get_the_date' , $plugin_public, 'to_andegna_calendar' );
+		$this->loader->add_filter( 'the_time' , $plugin_public, 'to_andegna_calendar' );
+		$this->loader->add_filter( 'get_the_modified_date' , $plugin_public, 'to_andegna_calendar' );
+		$this->loader->add_filter( 'get_comment_date' , $plugin_public, 'to_andegna_calendar' );
 	}
 
 	/**

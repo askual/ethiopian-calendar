@@ -21,6 +21,8 @@
  * @author     Askual Technologies <info@askual.com>
  */
 use Geezify\Geezify;
+use Andegna\Calender;
+
 class Ameshash_Public {
 
 	/**
@@ -100,6 +102,17 @@ class Ameshash_Public {
 	}
 	function to_andegna_calendar($date){
 		$geez = Geezify::create();
-		return $geez->toGeez(123)." ".$date." ?";
+		$date2 = new \DateTime($date);
+		// $thetime = \Andegna\DateTimeFactory::fromDateTime($date2)->format(DATE_COOKIE);
+		$thetime = \Andegna\DateTimeFactory::fromDateTime($date2);
+		// return $thetime->format('Y-m-d')->format(Andegna\Constants::DATE_ETHIOPIAN);
+		$options = get_option($this->plugin_name);
+        // $orthodox = $options['orthodox'];
+        $normal = $options['normal'];
+        if ($normal == 2)
+			return $thetime->format(Andegna\Constants::DATE_ETHIOPIAN);
+		if ($normal == 1)
+			return $thetime->format(Andegna\Constants::DATE_GEEZ_ORTHODOX);
+		// return $geez->toGeez(123)." ".$date." ?";
 	}
 }
