@@ -1,0 +1,126 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "481583ee04a955cacfa6756b0e2388b6",
+    "packages": [
+        {
+            "name": "andegna/calender",
+            "version": "v2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/andegna/calender.git",
+                "reference": "84d6c0f2c7c858d683ac4defc90a03a7637b77fe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/andegna/calender/zipball/84d6c0f2c7c858d683ac4defc90a03a7637b77fe",
+                "reference": "84d6c0f2c7c858d683ac4defc90a03a7637b77fe",
+                "shasum": ""
+            },
+            "require": {
+                "ext-calendar": "*",
+                "geezify/geezify-php": "^1.2",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "develop": "2.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Andegna\\": "src/",
+                    "Andegna\\PHPUnit\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sam As End",
+                    "email": "4sam21@gmail.com"
+                }
+            ],
+            "description": "If you ever want to convert Ethiopian Calender to any other calender system (like the Gregorian Calender) this is the right package for you. And by the way it also support Amharic date formatting and much much more.",
+            "keywords": [
+                "JDN",
+                "calender",
+                "date",
+                "ethiopian"
+            ],
+            "time": "2017-10-08T21:22:59+00:00"
+        },
+        {
+            "name": "geezify/geezify-php",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/geezify/geezify-php.git",
+                "reference": "2901449a22f9e88b58daad0b13770f322495a76d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/geezify/geezify-php/zipball/2901449a22f9e88b58daad0b13770f322495a76d",
+                "reference": "2901449a22f9e88b58daad0b13770f322495a76d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6|7.*"
+            },
+            "provide": {
+                "andegna/geezify": "self.version"
+            },
+            "replace": {
+                "andegna/geezify": "self.version"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Geezify\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sam As End",
+                    "email": "4sam21@gmail.com"
+                }
+            ],
+            "description": "A library to convert ascii number like '3456' to geez number '፴፬፻፶፮' and vise versa.",
+            "keywords": [
+                "ethiopian",
+                "geez",
+                "geezify"
+            ],
+            "time": "2017-02-24T13:52:50+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

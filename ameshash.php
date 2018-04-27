@@ -24,7 +24,7 @@
  * Text Domain:       ameshash
  * Domain Path:       /languages
  */
-
+require 'vendor/autoload.php';
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
 	die;

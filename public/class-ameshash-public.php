@@ -20,6 +20,7 @@
  * @subpackage Ameshash/public
  * @author     Askual Technologies <info@askual.com>
  */
+use Geezify\Geezify;
 class Ameshash_Public {
 
 	/**
@@ -98,6 +99,7 @@ class Ameshash_Public {
 	    return 'The ' . $title . ' was filtered';
 	}
 	function to_andegna_calendar($date){
-		return $date." ?";
+		$geez = Geezify::create();
+		return $geez->toGeez(123)." ".$date." ?";
 	}
 }

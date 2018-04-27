@@ -1,0 +1,19 @@
+{
+    "name": "askual/ameshash",
+    "authors": [
+        {
+            "name": "Askual Technologies",
+            "email": "info@askual.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.3",
+        "andegna/calender": "^2.1",
+    },
+    "autoload": {
+        "psr-4": {
+            "askual\\ameshash\\": ["src/"]
+        }
+    },
+    "require": {}
+}
