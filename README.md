@@ -20,7 +20,7 @@ This plugin enables using Ethiopian Calendar in pages and posts. Install the plu
 
 ## Installation
 
-1. [Download](https://github.com/askual/ethiopian-calendar/releases/tag/v1.0) the plugin
+1. [Download](https://github.com/askual/ethiopian-calendar/archive/v1.0.zip) the plugin
 2. Extract in plugins' directory or upload it via admin dashboard
 3. Activate
 4. Customize using it's setting page
