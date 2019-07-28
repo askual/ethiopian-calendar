@@ -6,8 +6,8 @@
  * @link       http://askual.com
  * @since      1.0.0
  *
- * @package    Ameshash
- * @subpackage Ameshash/includes
+ * @package    Ethiopian_Calendar
+ * @subpackage Ethiopian_Calendar/includes
  */
 
 /**
@@ -17,11 +17,11 @@
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    Ameshash
- * @subpackage Ameshash/includes
- * @author     Askual Technologies <info@askual.com>
+ * @package    Ethiopian_Calendar
+ * @subpackage Ethiopian_Calendar/includes
+ * @author     Askual Tech <info@askual.com>
  */
-class Ameshash_Loader {
+class Ethiopian_Calendar_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.

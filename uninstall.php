@@ -22,7 +22,7 @@
  * @link       http://askual.com
  * @since      1.0.0
  *
- * @package    Ameshash
+ * @package    Ethiopian_Calendar
  */
 
 // If uninstall not called from WordPress, then exit.

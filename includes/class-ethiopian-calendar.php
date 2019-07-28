@@ -9,8 +9,8 @@
  * @link       http://askual.com
  * @since      1.0.0
  *
- * @package    Ameshash
- * @subpackage Ameshash/includes
+ * @package    Ethiopian_Calendar
+ * @subpackage Ethiopian_Calendar/includes
  */
 
 /**
@@ -23,11 +23,11 @@
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    Ameshash
- * @subpackage Ameshash/includes
- * @author     Askual Technologies <info@askual.com>
+ * @package    Ethiopian_Calendar
+ * @subpackage Ethiopian_Calendar/includes
+ * @author     Askual Tech <info@askual.com>
  */
-class Ameshash {
+class Ethiopian_Calendar {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -35,7 +35,7 @@ class Ameshash {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Ameshash_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      Ethiopian_Calendar_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -67,12 +67,12 @@ class Ameshash {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if ( defined( 'PLUGIN_NAME_VERSION' ) ) {
-			$this->version = PLUGIN_NAME_VERSION;
+		if ( defined( 'ETHIOPIAN_CALENDAR_VERSION' ) ) {
+			$this->version = ETHIOPIAN_CALENDAR_VERSION;
 		} else {
 			$this->version = '1.0.0';
 		}
-		$this->plugin_name = 'ameshash';
+		$this->plugin_name = 'ethiopian-calendar';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -86,10 +86,10 @@ class Ameshash {
 	 *
 	 * Include the following files that make up the plugin:
 	 *
-	 * - Ameshash_Loader. Orchestrates the hooks of the plugin.
-	 * - Ameshash_i18n. Defines internationalization functionality.
-	 * - Ameshash_Admin. Defines all hooks for the admin area.
-	 * - Ameshash_Public. Defines all hooks for the public side of the site.
+	 * - Ethiopian_Calendar_Loader. Orchestrates the hooks of the plugin.
+	 * - Ethiopian_Calendar_i18n. Defines internationalization functionality.
+	 * - Ethiopian_Calendar_Admin. Defines all hooks for the admin area.
+	 * - Ethiopian_Calendar_Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -103,33 +103,33 @@ class Ameshash {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-ameshash-loader.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-ethiopian-calendar-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-ameshash-i18n.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-ethiopian-calendar-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-ameshash-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-ethiopian-calendar-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-ameshash-public.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-ethiopian-calendar-public.php';
 
-		$this->loader = new Ameshash_Loader();
+		$this->loader = new Ethiopian_Calendar_Loader();
 
 	}
 
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the Ameshash_i18n class in order to set the domain and to register the hook
+	 * Uses the Ethiopian_Calendar_i18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
@@ -137,7 +137,7 @@ class Ameshash {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Ameshash_i18n();
+		$plugin_i18n = new Ethiopian_Calendar_i18n();
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -152,19 +152,26 @@ class Ameshash {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Ameshash_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new Ethiopian_Calendar_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
-
 		// Add menu item
-		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_plugin_admin_menu' );
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'register_ethiopian_calendar_menu_page' );
+
+		$this->loader->add_action('admin_menu', $plugin_admin, 'my_plugin_menu');
+
 		// Add Settings link to the plugin
 		$plugin_basename = plugin_basename( plugin_dir_path( __DIR__ ) . $this->plugin_name . '.php' );
 		$this->loader->add_filter( 'plugin_action_links_' . $plugin_basename, $plugin_admin, 'add_action_links' );
 		//Save / update our setting numbers
 		$this->loader->add_action('admin_init', $plugin_admin, 'options_update');
+
+
+
+
+		$this->loader->add_action('admin_notices', $plugin_admin,'askual_ethiopian_activation_notice');
 	}
 
 	/**
@@ -176,17 +183,19 @@ class Ameshash {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Ameshash_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new Ethiopian_Calendar_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
 
-		$this->loader->add_filter( 'the_content' , $plugin_public, 'wporg_filter_title' );
 		$this->loader->add_filter( 'get_the_date' , $plugin_public, 'to_andegna_calendar' );
-		$this->loader->add_filter( 'the_time' , $plugin_public, 'to_andegna_calendar' );
-		$this->loader->add_filter( 'get_the_modified_date' , $plugin_public, 'to_andegna_calendar' );
-		$this->loader->add_filter( 'get_comment_date' , $plugin_public, 'to_andegna_calendar' );
+		// $this->loader->add_filter( 'the_time' , $plugin_public, 'to_andegna_calendar' );
+		// $this->loader->add_filter( 'get_the_modified_date' , $plugin_public, 'to_andegna_calendar' );
+		// $this->loader->add_filter( 'get_comment_date' , $plugin_public, 'to_andegna_calendar' );
+
+
+
 	}
 
 	/**
@@ -213,7 +222,7 @@ class Ameshash {
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     1.0.0
-	 * @return    Ameshash_Loader    Orchestrates the hooks of the plugin.
+	 * @return    Ethiopian_Calendar_Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
 		return $this->loader;

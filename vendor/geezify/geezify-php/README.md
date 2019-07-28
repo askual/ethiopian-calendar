@@ -15,7 +15,7 @@ Geezify  ![From Ethiopia](https://img.shields.io/badge/From-Ethiopia-brightgreen
 This package is a library to convert ascii number like '**3456**' to geez number '**፴፬፻፶፮**' and vise versa.
 
  > Ge'ez (ግዕዝ) is an ancient South Semitic language that originated in Eritrea and the northern region of Ethiopia in the Horn of Africa. It later became the official language of the Kingdom of Aksum and Ethiopian imperial court.
- 
+
 click [here](https://en.wikipedia.org/wiki/Ge%27ez) to read more.
 
 Prerequisites
@@ -28,7 +28,7 @@ Installation
 composer require geezify/geezify-php
 ```
 
- > If you never used `composer` before, please check out 
+ > If you never used `composer` before, please check out
  > [this link](https://getcomposer.org)
  > before you write any **PHP** code again!
 

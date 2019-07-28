@@ -10,18 +10,18 @@
  *
  * @link              http://askual.com
  * @since             1.0.0
- * @package           Ameshash
+ * @package           Ethiopian_Calendar
  *
  * @wordpress-plugin
- * Plugin Name:       ameshash
- * Plugin URI:        http://askual.com/wordpress/ameshash
- * Description:       Bringing Ethiopian Calendar to WP world.
+ * Plugin Name:       Ethiopian Calendar
+ * Plugin URI:        http://askual.com/wp/ethiopian-calendar-plugin
+ * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
  * Version:           1.0.0
- * Author:            Askual Technologies
+ * Author:            Askual Tech
  * Author URI:        http://askual.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       ameshash
+ * Text Domain:       ethiopian-calendar
  * Domain Path:       /languages
  */
 require 'vendor/autoload.php';
@@ -35,34 +35,34 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'PLUGIN_NAME_VERSION', '1.0.0' );
+define( 'ETHIOPIAN_CALENDAR_VERSION', '1.0.0' );
 
 /**
  * The code that runs during plugin activation.
- * This action is documented in includes/class-ameshash-activator.php
+ * This action is documented in includes/class-ethiopian-calendar-activator.php
  */
-function activate_ameshash() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-ameshash-activator.php';
-	Ameshash_Activator::activate();
+function activate_ethiopian_calendar() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-ethiopian-calendar-activator.php';
+	Ethiopian_Calendar_Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
- * This action is documented in includes/class-ameshash-deactivator.php
+ * This action is documented in includes/class-ethiopian-calendar-deactivator.php
  */
-function deactivate_ameshash() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-ameshash-deactivator.php';
-	Ameshash_Deactivator::deactivate();
+function deactivate_ethiopian_calendar() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-ethiopian-calendar-deactivator.php';
+	Ethiopian_Calendar_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_ameshash' );
-register_deactivation_hook( __FILE__, 'deactivate_ameshash' );
+register_activation_hook( __FILE__, 'activate_ethiopian_calendar' );
+register_deactivation_hook( __FILE__, 'deactivate_ethiopian_calendar' );
 
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-ameshash.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-ethiopian-calendar.php';
 
 /**
  * Begins execution of the plugin.
@@ -73,10 +73,10 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-ameshash.php';
  *
  * @since    1.0.0
  */
-function run_ameshash() {
+function run_ethiopian_calendar() {
 
-	$plugin = new Ameshash();
+	$plugin = new Ethiopian_Calendar();
 	$plugin->run();
 
 }
-run_ameshash();
+run_ethiopian_calendar();

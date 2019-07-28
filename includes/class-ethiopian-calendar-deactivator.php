@@ -6,8 +6,8 @@
  * @link       http://askual.com
  * @since      1.0.0
  *
- * @package    Ameshash
- * @subpackage Ameshash/includes
+ * @package    Ethiopian_Calendar
+ * @subpackage Ethiopian_Calendar/includes
  */
 
 /**
@@ -16,11 +16,11 @@
  * This class defines all code necessary to run during the plugin's deactivation.
  *
  * @since      1.0.0
- * @package    Ameshash
- * @subpackage Ameshash/includes
- * @author     Askual Technologies <info@askual.com>
+ * @package    Ethiopian_Calendar
+ * @subpackage Ethiopian_Calendar/includes
+ * @author     Askual Tech <info@askual.com>
  */
-class Ameshash_Deactivator {
+class Ethiopian_Calendar_Deactivator {
 
 	/**
 	 * Short Description. (use period)

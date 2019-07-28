@@ -45,7 +45,7 @@
 - [Validators](#validators)
 - [Contributing](#contributing)
 
-<a name="basic-usage-hammer"></a> 
+<a name="basic-usage-hammer"></a>
 ## Basic Usage :hammer: [&uarr;](#top)
 
 Just to give you the 10,000-foot view (:airplane:) of the package.
@@ -88,7 +88,7 @@ echo $ethipic->getDay();    // 7
 
 echo $ethipic->getTimestamp(); // 1494822600
 
-// turn it back to gregorian 
+// turn it back to gregorian
 // Monday, 15-May-2017 07:30:00 EAT
 echo $ethipic->toGregorian()->format(DATE_COOKIE);
 ```
@@ -96,12 +96,12 @@ echo $ethipic->toGregorian()->format(DATE_COOKIE);
 <a name="requirement"></a>
 ## Requirement [&uarr;](#top)
 
-Andegna Calender requires `php: >=5.6` with fire and blood :fire: :dragon:. 
+Andegna Calender requires `php: >=5.6` with fire and blood :fire: :dragon:.
 
 <a name="installation"></a>
 ## Installation [&uarr;](#top)
 
-**Andegna Calender** utilizes [Composer](https://getcomposer.org/) to manage its dependencies. 
+**Andegna Calender** utilizes [Composer](https://getcomposer.org/) to manage its dependencies.
 So, before using this, make sure you have Composer installed on your machine.
 
 > Composer is a tool for dependency management in PHP. It allows you to declare the libraries your project depends on and it will manage (install/update) them for you.
@@ -117,8 +117,8 @@ composer require andegna/calender
 
 Before we talk about calendar conversion, we better know how the `Andegna\DateTime` class works internally.
 
-The `Andegna\DateTime` class is just a wrapper around PHP's built-in [`DateTime`](http://uk1.php.net/manual/en/class.datetime.php) 
-object and implements the PHP [`DateTimeInterface`](http://uk1.php.net/manual/en/class.datetimeinterface.php) 
+The `Andegna\DateTime` class is just a wrapper around PHP's built-in [`DateTime`](http://uk1.php.net/manual/en/class.datetime.php)
+object and implements the PHP [`DateTimeInterface`](http://uk1.php.net/manual/en/class.datetimeinterface.php)
 (OK! I lied on one part but trust me you don't wanna know that :smile:).
 
 So `Andegna\DateTime` keep hold of the gregorian date and overrides the `format`, `getTimestamp`, `add`, 'diff' and such methods to give you an Ethiopian Calendar equivalent.
@@ -153,7 +153,7 @@ echo $fall_of_derg->toGregorian()->format(DATE_COOKIE).PHP_EOL;
 <a name="from-timestamp"></a>
 ### From Timestamp [&uarr;](#top)
 
-Let's assume you have a timestamp from same were probably `time()` function or from some kind of database. 
+Let's assume you have a timestamp from same were probably `time()` function or from some kind of database.
 
 You can get `Andegna\DateTime` object like this
 ```php
@@ -252,9 +252,9 @@ If you are a geek like me, you are probably interested in Calendar coz it has As
 <a name="how-php-calender-conversion-works"></a>
 ### How PHP calender conversion works [&uarr;](#top)
 
-> The calendar extension presents a series of functions to simplify converting between different calendar formats (except Ethiopian). 
-> The intermediary or standard it is based on is the **Julian Day Count**. The Julian Day Count is a count of days starting from January 1st, 4713 B.C. 
-> To convert between calendar systems, you must first convert to Julian Day Count, then to the calendar system of your choice. 
+> The calendar extension presents a series of functions to simplify converting between different calendar formats (except Ethiopian).
+> The intermediary or standard it is based on is the **Julian Day Count**. The Julian Day Count is a count of days starting from January 1st, 4713 B.C.
+> To convert between calendar systems, you must first convert to Julian Day Count, then to the calendar system of your choice.
 > Julian Day Count is very different from the Julian Calendar! For more information on Julian Day Count, visit » [http://www.hermetic.ch/cal_stud/jdn.htm](http://www.hermetic.ch/cal_stud/jdn.htm).
 > For more information on calendar systems visit » [http://www.fourmilab.ch/documents/calendar/](http://www.fourmilab.ch/documents/calendar/). Excerpts from this page are included in these instructions and are in quotes.
 
@@ -311,7 +311,7 @@ $converter = new Andegna\Converter\ToJdnConverter($et->getDay(), $et->getMonth()
 // convert it to jdn
 $jdn = $converter->getJdn();
 
-// use the built-in php function to convert the jdn to the jewish calender 
+// use the built-in php function to convert the jdn to the jewish calender
 $jewish_date1 = jdtojewish($jdn);
 
 // 9/16/5777
@@ -321,7 +321,7 @@ echo $jewish_date1;
 $jewish_date2 = jdtojewish($jdn, true,     CAL_JEWISH_ADD_ALAFIM_GERESH);
 
 // convert the return string to utf-8
-$jewish_date2 = iconv ('WINDOWS-1255', 'UTF-8', $jewish_date2); 
+$jewish_date2 = iconv ('WINDOWS-1255', 'UTF-8', $jewish_date2);
 
 // טז אייר ה'תשעז
 echo $jewish_date2;
@@ -375,9 +375,9 @@ You probably need to read about [DateTimeInterval](http://php.net/manual/en/clas
 To give you a short summary, `DateInterval` implements the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) durations.
 
 Durations are a component of time intervals and define the amount of intervening time in a time interval.
-Durations are represented by the format **`P[n]Y[n]M[n]DT[n]H[n]M[n]S`** or **`P[n]W`**. 
+Durations are represented by the format **`P[n]Y[n]M[n]DT[n]H[n]M[n]S`** or **`P[n]W`**.
 
-In these representations, the [n] is replaced by the value for each of the date and time elements that follow the [n]. 
+In these representations, the [n] is replaced by the value for each of the date and time elements that follow the [n].
 
 Leading zeros are not required. The capital letters P, Y, M, W, D, T, H, M, and S are designators for each of the date and time elements and are not replaced.
 
@@ -443,7 +443,7 @@ object(DateInterval)[9]
 PHP built-in `DateTime` class has a `format` method used to format dates.
 
 > Read about the format method [here](http://uk1.php.net/manual/en/datetime.format.php)
-> 
+>
 > Read out the format characters [here](http://uk1.php.net/manual/en/function.date.php)
 
 If you read or already know how PHP date function works, you already know how exactly the formatting works.
@@ -514,7 +514,7 @@ Lastly, if you append `_ORTHODOX` you will get the orthodox day name and orthodo
 <a name="easter"></a>
 ### Easter [&uarr;](#top)
 
-Calculating easter date feels like shooting a moving target. And everyone thinks calculating easter date is like impossible, some think like it's only possible if you are a deeply religious and some think it's decided by the church. But calculating easter date ( also called Computus) is not that much complex. 
+Calculating easter date feels like shooting a moving target. And everyone thinks calculating easter date is like impossible, some think like it's only possible if you are a deeply religious and some think it's decided by the church. But calculating easter date ( also called Computus) is not that much complex.
 
 In the simplest form, Easter is the first Sunday following the full moon that follows the northern spring (vernal) equinox.
 

@@ -24,6 +24,7 @@
 	        //Grab all options
 	        $options = get_option($this->plugin_name);
 	        // Cleanup
+          var_dump($options);
             $abnormal = $options['abnormal'];
 	        $normal = $options['normal'];
 	    ?>
@@ -52,9 +53,19 @@
         </label>
     </fieldset>
 
+    <fieldset>
+        <legend style="font-size: large; background-color: red;">
+            <b><span>Uninstall</span></b>
+        </legend>
+        <label>
+            <input type="checkbox" id="<?php echo $this->plugin_name; ?>-abnormal" name="<?php echo $this->plugin_name; ?>[abnormal]" value="1" <?php checked(1, $abnormal, true); ?> />
+            <span><?php esc_attr_e('Something something', $this->plugin_name); ?></span>
+        </label>
+    </fieldset>
 
     <?php submit_button('Save all changes', 'primary','submit', TRUE); ?>
 
     </form>
+
 
 </div>

@@ -9,8 +9,8 @@
  * @link       http://askual.com
  * @since      1.0.0
  *
- * @package    Ameshash
- * @subpackage Ameshash/includes
+ * @package    Ethiopian_Calendar
+ * @subpackage Ethiopian_Calendar/includes
  */
 
 /**
@@ -20,11 +20,11 @@
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    Ameshash
- * @subpackage Ameshash/includes
- * @author     Askual Technologies <info@askual.com>
+ * @package    Ethiopian_Calendar
+ * @subpackage Ethiopian_Calendar/includes
+ * @author     Askual Tech <info@askual.com>
  */
-class Ameshash_i18n {
+class Ethiopian_Calendar_i18n {
 
 
 	/**
@@ -35,7 +35,7 @@ class Ameshash_i18n {
 	public function load_plugin_textdomain() {
 
 		load_plugin_textdomain(
-			'ameshash',
+			'ethiopian-calendar',
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);

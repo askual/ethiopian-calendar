@@ -8,8 +8,8 @@
  * @link       http://askual.com
  * @since      1.0.0
  *
- * @package    Ameshash
- * @subpackage Ameshash/public/partials
+ * @package    Ethiopian_Calendar
+ * @subpackage Ethiopian_Calendar/public/partials
  */
 ?>
 
